@@ -57,7 +57,8 @@ iOS 端添加 Exchange 账号，服务器填 mail.example.com，用户名用完�
 
 *********************************************************************************************
 nginx 1.28版反向代理设置：（老版本的http2是写在 443 ssl 的后面，加个http2即可）
-```server {
+```python
+server {
     listen 443 ssl;
     http2 on;
     server_name mail.example.com;
@@ -75,5 +76,6 @@ nginx 1.28版反向代理设置：（老版本的http2是写在 443 ssl 的后�
         include /etc/nginx/fastcgi.conf;
         fastcgi_intercept_errors on;
     }
-}```
+}
+···
 
