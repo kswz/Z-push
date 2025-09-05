@@ -28,6 +28,7 @@ sudo systemctl restart php-fpm
 ```
 cd /var/www
 sudo wget -4 https://github.com/Z-Hub/Z-Push/archive/refs/tags/2.7.6.tar.gz
+dnf install -y tar
 sudo tar -xf 2.7.6.tar.gz
 sudo mv Z-Push-2.7.6 z-push
 ```
