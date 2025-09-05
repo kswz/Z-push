@@ -14,7 +14,14 @@ sudo dnf module list php
 ```
 sudo dnf module reset php -y
 sudo dnf module enable php:remi-7.2 -y
-sudo dnf install -y php-soap php-pdo php-mysqlnd php-intl php-imap
+```
+```
+sudo dnf install -y \
+  php php-fpm php-cli php-common \
+  php-mbstring php-json php-xml php-zip php-opcache \
+  php-curl php-openssl \
+  php-soap php-pdo php-mysqlnd php-intl php-imap
+
 sudo systemctl restart php-fpm
 ```
 
