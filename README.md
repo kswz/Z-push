@@ -6,19 +6,21 @@ Z-push的使用方法
 
 系统默认源没有php-imap
 
+```
 sudo dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm   # Remi 源
 sudo dnf module list php
 sudo dnf module reset php -y
 sudo dnf module enable php:remi-7.2 -y
-
 sudo dnf install -y php-soap php-pdo php-mysqlnd php-intl php-imap
-
 sudo systemctl restart php-fpm
+```
 
+```
 cd /var/www
 sudo wget -4 https://github.com/Z-Hub/Z-Push/archive/refs/tags/2.7.6.tar.gz
 sudo tar -xf 2.7.6.tar.gz
 sudo mv Z-Push-2.7.6 z-push
+```
 
 sudo mkdir -p /var/log/z-push   # z-push默认日志目录，必须手动建，否则出错
 sudo mkdir -p /var/lib/z-push
