@@ -45,7 +45,7 @@ sudo chown -R apache:apache /var/lib/z-push
 
 修改主配置文件，主要包括日志级别，iphone轮询间隔
 ```
-sudo wget -4 -O /var/www/z-push/src/config.php https://raw.githubusercontent.com/kswz/z-push/main/src_config.php
+sudo wget -4 -O /var/www/z-push/src/config.php https://raw.githubusercontent.com/kswz/Z-push/main/src_config.php
 ```
 改动如下（据实修改）：
 ```
@@ -58,7 +58,7 @@ define('PING_INTERVAL', 30);
 
 修改imap配置文件，主要是imap端口，以及各个邮箱子文件夹名称（务必一一对应）
 ```
-sudo wget -4 -O /var/www/z-push/src/backend/imap/config.php https://raw.githubusercontent.com/kswz/z-push/main/imap_config.php
+sudo wget -4 -O /var/www/z-push/src/backend/imap/config.php https://raw.githubusercontent.com/kswz/Z-push/main/imap_config.php
 ```
 改动如下（据实修改）：
 ```
