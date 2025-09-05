@@ -8,6 +8,10 @@ Z-push的使用方法
 ```
 sudo dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm   # Remi 源
 sudo dnf module list php
+```
+
+选择适合自己的版本，此处选择remi-7.2
+```
 sudo dnf module reset php -y
 sudo dnf module enable php:remi-7.2 -y
 sudo dnf install -y php-soap php-pdo php-mysqlnd php-intl php-imap
