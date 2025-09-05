@@ -45,7 +45,7 @@ sudo chown -R apache:apache /var/lib/z-push
 
 修改主配置文件，主要包括日志级别，iphone轮询间隔
 ```
-sudo wget -4 -O /var/www/z-push/src/config.php https://raw.githubusercontent.com/kswz/Z-push/main/src_config.php
+sudo wget -4 -O /var/www/z-push/src/config.php https://raw.githubusercontent.com/kswz/Z-push/main/scr_config.php
 ```
 改动如下（据实修改）：
 ```
