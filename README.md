@@ -52,11 +52,13 @@ sudo wget -4 -O /var/www/z-push/src/backend/imap/config.php https://raw.githubus
 doveadm mailbox list -u user@example.com   # 先列出Dovecot的实际文件夹名称
 ```
 // 使用本地 Dovecot
+```
 define('IMAP_SERVER', 'localhost');
 define('IMAP_PORT', 993);
 define('IMAP_OPTIONS', '/ssl/novalidate-cert');
 define('IMAP_FOLDER_CONFIGURED', true);
 修改最后一项后面的各个文件夹名称，与前面 doveadm mailbox 完全一致
+```
 
 重启生效
 ```
