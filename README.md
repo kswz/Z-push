@@ -5,7 +5,6 @@ Z-push的使用方法
 安装依赖（php-pdo php-mysqlnd php-intl，这三样，缺任何一个都会报错）
 
 系统默认源没有php-imap
-
 ```
 sudo dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm   # Remi 源
 sudo dnf module list php
@@ -22,15 +21,19 @@ sudo tar -xf 2.7.6.tar.gz
 sudo mv Z-Push-2.7.6 z-push
 ```
 
+```
 sudo mkdir -p /var/log/z-push   # z-push默认日志目录，必须手动建，否则出错
 sudo mkdir -p /var/lib/z-push
 grep ^user /etc/php-fpm.d/www.conf   # 获取php用户，此处是apache，对应修改下面三个命令
 sudo chown -R apache:apache /var/www/z-push
 sudo chown -R apache:apache /var/log/z-push
 sudo chown -R apache:apache /var/lib/z-push
+```
 
 # 修改主配置文件，主要包括日志级别，iphone轮询间隔
+```
 sudo wget -4 -O /var/www/z-push/src/config.php https://raw.githubusercontent.com/kswz/z-push/main/src_config.php
+```
 # 改动如下（据实修改）：
 define('BACKEND_PROVIDER', 'BackendIMAP');
 define('TIMEZONE', 'Asia/Shanghai');
@@ -39,9 +42,13 @@ define('LOGLEVEL', LOGLEVEL_ERROR);
 define('PING_INTERVAL', 30);
 
 # 修改imap配置文件，主要是imap端口，以及各个邮箱子文件夹名称（务必一一对应）
+```
 sudo wget -4 -O /var/www/z-push/src/backend/imap/config.php https://raw.githubusercontent.com/kswz/z-push/main/imap_config.php
+```
 # 改动如下（据实修改）：
+```
 doveadm mailbox list -u user@example.com   # 先列出Dovecot的实际文件夹名称
+```
 
 // 使用本地 Dovecot
 define('IMAP_SERVER', 'localhost');
@@ -50,7 +57,10 @@ define('IMAP_OPTIONS', '/ssl/novalidate-cert');
 define('IMAP_FOLDER_CONFIGURED', true);
 # 修改最后一项后面的各个文件夹名称，与前面 doveadm mailbox 完全一致
 
+重启生效
+```
 sudo systemctl restart php-fpm
+```
 
 浏览器访问
 https://mail.example.com/Microsoft-Server-ActiveSync
