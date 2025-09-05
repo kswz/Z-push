@@ -10,10 +10,10 @@ sudo dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm   # 
 sudo dnf module list php
 ```
 
-选择适合自己的版本，此处选择remi-7.2
+选择适合自己的版本，此处选择remi-8.4
 ```
 sudo dnf module reset php -y
-sudo dnf module enable php:remi-7.2 -y
+sudo dnf module enable php:remi-8.4 -y
 ```
 ```
 sudo dnf install -y \
