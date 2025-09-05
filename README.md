@@ -24,7 +24,7 @@ sudo dnf install -y \
 
 sudo systemctl restart php-fpm
 ```
-
+# 下面开始部署
 ```
 sudo mkdir -p /var/www
 cd /var/www
