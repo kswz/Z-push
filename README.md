@@ -35,11 +35,13 @@ sudo chown -R apache:apache /var/lib/z-push
 sudo wget -4 -O /var/www/z-push/src/config.php https://raw.githubusercontent.com/kswz/z-push/main/src_config.php
 ```
 # 改动如下（据实修改）：
+```
 define('BACKEND_PROVIDER', 'BackendIMAP');
 define('TIMEZONE', 'Asia/Shanghai');
 define('LOGFILEDIR', '/var/log/z-push/');
 define('LOGLEVEL', LOGLEVEL_ERROR);
 define('PING_INTERVAL', 30);
+```
 
 # 修改imap配置文件，主要是imap端口，以及各个邮箱子文件夹名称（务必一一对应）
 ```
@@ -49,13 +51,13 @@ sudo wget -4 -O /var/www/z-push/src/backend/imap/config.php https://raw.githubus
 ```
 doveadm mailbox list -u user@example.com   # 先列出Dovecot的实际文件夹名称
 ```
-
 // 使用本地 Dovecot
 define('IMAP_SERVER', 'localhost');
 define('IMAP_PORT', 993);
 define('IMAP_OPTIONS', '/ssl/novalidate-cert');
 define('IMAP_FOLDER_CONFIGURED', true);
 # 修改最后一项后面的各个文件夹名称，与前面 doveadm mailbox 完全一致
+```
 
 重启生效
 ```
